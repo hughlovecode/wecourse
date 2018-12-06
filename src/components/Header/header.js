@@ -6,15 +6,28 @@ export default class Header extends React.Component{
     constructor(){
         super()
         //将数据库查到的数据初始化
-        this.state={
-            isLogin:true,
-            userName:sessionStorage.getItem('userName'),
-            userImg:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1788562038,3472846301&fm=27&gp=0.jpg',
-            userId:'0101',
-            status:'首页'
+    }
+    checkLogin=()=>{
+        let temp=localStorage.getItem('userId')
+        //alert('temp'+temp)
+        if(temp!=null&&temp.length>0){
+            this.setState({
+                status:'首页',
+                userName:localStorage.getItem('userName'),
+                userImg:localStorage.getItem('userImg'),
+                userId:localStorage.getItem('userId'),
+            })
+        }else{
+            window.location.href='/login'
         }
     }
+    //下线函数
+    logout=()=>{
+        localStorage.removeItem('userId');
+        window.location.href='/login'
+    }
     componentWillMount(){
+        this.checkLogin()
         setInterval(()=>{
             let sysTime= Util.formateDate(new Date().getTime())
             this.setState({
@@ -32,9 +45,8 @@ export default class Header extends React.Component{
                 </section>
             <section className='status'>
                 <span className='statusPage'>{this.state.status}</span>
-                <span className='loginstatus'>
-                { this.state.isLogin&&<Link to='/login'>注销</Link>}
-                    { (!this.state.isLogin)&&<Link to='/login'>已经登录</Link>}
+                <span className='loginstatus' onClick={this.logout}>
+                注销
                 </span>
                 <span className='systime'>{this.state.sysTime}</span>
 

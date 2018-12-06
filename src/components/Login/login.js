@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row,Col} from 'antd'
-import { Redirect } from 'react-router-dom'
+import http from './../../axios/index'
 import './login.styl'
 export default class Login extends React.Component{
     constructor(){
@@ -14,7 +14,8 @@ export default class Login extends React.Component{
             show1:this.state.switchIndex?'block':'none',
             show2:!this.state.switchIndex?'block':'none',
         })
-        if(sessionStorage.getItem('userName')!=null){
+        //storage,判断能否跳过登录
+        if(window.localStorage.getItem('userId')!=null&&window.localStorage.getItem('userId').length>0){
             window.location.href='/Info/myInfo'
         }
 
@@ -41,11 +42,29 @@ export default class Login extends React.Component{
             if(!window.localStorage){
                 alert('你的浏览器不支持loaclstorage,请使用chrome')
             }else{
-                sessionStorage.setItem('userName',this.refs.userName.value)
-                sessionStorage.setItem('password',this.refs.password.value)
+                //登录过程
+                http.post('/userInfo/login',{
+                    userName:this.refs.userName.value,
+                    password:this.refs.password.value
+                }).then((res)=>{
+                    if(res.status==='1'){
+                        alert('用户名或者密码错误')
+                    }else if(res.status==='2'){
+                        alert('您还没有注册哦~')
+                    }else{
+                        //alert(res.result.userInfo)
+                        let storage=window.localStorage;
+                        //将基础信息存到localstorage中
+                        storage.setItem('userId',res.result.userInfo.userId)
+                        storage.setItem('userName',res.result.userInfo.userName)
+                        storage.setItem('userImg',res.result.userInfo.userImg)
+                        window.location.href='/Info/myInfo'
+
+                    }
+                })
             }
             //return <Redirect to='/Info/myInfo'/>
-            window.location.href='/Info/myInfo'
+
         }
     }
 
