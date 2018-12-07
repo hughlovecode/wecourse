@@ -3,12 +3,12 @@ import {BrowserRouter,Route,Switch,Link,Redirect} from 'react-router-dom'
 import FirstPage from './firstPage'
 import './App.css';
 import Login from './components/Login/login'
-import NoMatch from './pages/NoMatch/NoMatch'
 import Home from './pages/manage/home/home'
 import MyInfo from './pages/manage/myInfo/myInfo'
 //import changeMyInfo from './pages/manage/changeMyInfo/changeMyInfo'
 import changeMyInfo from './pages/manage/changeMyInfo/changeMyInfo'
 import MyCourse from './pages/manage/mycourse/myCourse'
+import Detail from './pages/manage/mycourse/detail'
 class App extends Component {
     constructor(){
         super()
@@ -20,6 +20,7 @@ class App extends Component {
     componentWillMount(){
         //this.checkLogin()
     }
+    /*
     checkLogin=()=>{
         var that=this
         //监测是否登录
@@ -40,7 +41,7 @@ class App extends Component {
             }
         })
 
-    }
+    }*/
   render() {
 
             return (
@@ -58,6 +59,9 @@ class App extends Component {
                                 </Home>}></Route>
                                 <Route path='/course/mycourse' component={()=><Home>
                                     <Route path='/course/mycourse' component={MyCourse}/>
+                                </Home>}></Route>
+                                <Route path='/course/detail' component={()=><Home>
+                                    <Route path='/course/detail' component={Detail}/>
                                 </Home>}></Route>
                                 <Redirect path="/" to={{pathname: '/login'}} />
                             </Switch>

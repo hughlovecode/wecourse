@@ -34,8 +34,10 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // style files regexes
 
-const cssRegex = /\.(less|css)$/;
-const cssModuleRegex = /\.module\.(less|css)$/;
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
@@ -46,11 +48,6 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         {
             loader: require.resolve('css-loader'),
             options: cssOptions,
-        },
-        {
-            loader: require.resolve('less-loader'),
-            //options: cssOptions,
-            options: { javascriptEnabled: true }
         },
         {
             // Options for PostCSS as we reference these options twice
@@ -220,7 +217,7 @@ module.exports = {
                         use: [
                             require.resolve('style-loader'),
                             require.resolve('css-loader'),
-                            require.resolve('less-loader'),
+
                             require.resolve('stylus-loader')
                         ]
                     },
@@ -305,6 +302,13 @@ module.exports = {
                             modules: true,
                             getLocalIdent: getCSSModuleLocalIdent,
                         }),
+                    },
+                    {
+                        test: lessRegex,
+                        exclude: lessModuleRegex,
+                        use: getStyleLoaders({
+                            importLoaders: 2,
+                        }, 'less-loader'),
                     },
                     // Opt-in support for SASS (using .scss or .sass extensions).
                     // Chains the sass-loader with the css-loader and the style-loader
