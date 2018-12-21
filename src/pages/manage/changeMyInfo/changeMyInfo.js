@@ -12,7 +12,7 @@ export default class ChangeMyInfo extends React.Component{
     getData=()=>{
         let userId=localStorage.getItem('userId')
         http.post('/userInfo/info',{userId:userId}).then((res)=>{
-            if(res.status!='0'){
+            if(res.status!=='0'){
                 alert('好像出了点以外刷新看看')
             }else{
                 let temp=res.result.info;

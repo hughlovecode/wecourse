@@ -25,6 +25,7 @@ export default class Header extends React.Component{
     logout=()=>{
         localStorage.removeItem('userId');
         window.location.href='/login'
+
     }
     componentWillMount(){
         this.checkLogin()

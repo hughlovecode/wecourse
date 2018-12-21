@@ -4,7 +4,7 @@ export default class Test extends React.Component{
     render(){
         return(
             <div>
-                <section className='sec1'>
+                <section className='sec111'>
                     <div className='div1'>div1</div>
                 </section>
                 <section className='sec2'>

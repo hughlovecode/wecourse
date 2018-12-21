@@ -54,7 +54,7 @@ export default class MyInfo extends React.Component{
                 <Card
                     style={{ width: 350 }}
                     cover={<img alt="example" src={this.state.userImg} />}
-                    actions={[<Icon type="setting" />, <Icon type="edit" onClick={()=>{window.location.href='/info/changeMyInfo'}}></Icon>, <Icon type="ellipsis" />]}
+                    actions={[<Icon type="setting" />, <Icon type="edit" onClick={()=>{this.props.history.push('/Info/changeMyInfo')}}></Icon>, <Icon type="ellipsis" />]}
                 >
                     <Meta
                         avatar={<Avatar src={this.state.userImg} />}

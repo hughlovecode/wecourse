@@ -8708,6 +8708,13 @@ react-error-overlay@^5.1.0:
   resolved "http://registry.npmjs.lianjia.com:7001/react-error-overlay/download/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha1-xRaZWlZS57++2LSXkQ1SgN90p+g=
 
+react-infinite-scroller@^1.2.2:
+  version "1.2.2"
+  resolved "http://registry.npmjs.lianjia.com:7001/react-infinite-scroller/download/react-infinite-scroller-1.2.2.tgz#1d13b8167476dfe64c401983293dabc6a8a8ecf3"
+  integrity sha1-HRO4FnR23+ZMQBmDKT2rxqio7PM=
+  dependencies:
+    prop-types "^15.5.8"
+
 react-lazy-load@^3.0.13:
   version "3.0.13"
   resolved "http://registry.npmjs.lianjia.com:7001/react-lazy-load/download/react-lazy-load-3.0.13.tgz#3b0a92d336d43d3f0d73cbe6f35b17050b08b824"
@@ -9059,6 +9066,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+reqwest@^2.0.5:
+  version "2.0.5"
+  resolved "http://registry.npmjs.lianjia.com:7001/reqwest/download/reqwest-2.0.5.tgz#00fb15ac4918c419ca82b43f24c78882e66039a1"
+  integrity sha1-APsVrEkYxBnKgrQ/JMeIguZgOaE=
 
 resize-observer-polyfill@^1.5.0:
   version "1.5.0"

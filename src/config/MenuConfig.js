@@ -23,7 +23,7 @@ const menuList = [
             },
             {
                 title: '增加课程',
-                key: '/course/addCourse',
+                key: '/course/addMyCourse',
             },
             {
                 title: '修改课程',

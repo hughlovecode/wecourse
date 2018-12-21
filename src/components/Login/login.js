@@ -16,7 +16,7 @@ export default class Login extends React.Component{
         })
         //storage,判断能否跳过登录
         if(window.localStorage.getItem('userId')!=null&&window.localStorage.getItem('userId').length>0){
-            window.location.href='/Info/myInfo'
+            this.props.history.push('/Info/myInfo')
         }
 
     }
