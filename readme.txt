@@ -1,4 +1,4 @@
-1.确定自己安装好了node,yarn或者npm环境
+1.确定自己安装好了react相关环境已经yarn/npm
 2.download前端资源
 3.cd 到目录下
 4.yarn install 安装依赖
