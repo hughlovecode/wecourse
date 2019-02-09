@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row,Col,Card,Icon,Avatar,List } from 'antd';
+import { Row,Col,Card,Icon,Avatar } from 'antd';
 import http from './../../../axios/index'
 import './myInfo.styl'
 const { Meta } = Card;
@@ -8,15 +8,15 @@ const { Meta } = Card;
 export default class MyInfo extends React.Component{
     componentWillMount(){
         this.getData();
-        this.state={
+        this.setState({
             status:'',//必须写上status,否则下面this.state.status会报错,其他无所谓
             courseTree:''
-        }
+        })
     }
     getData=()=>{
         let userId=localStorage.getItem('userId')
         http.post('/userInfo/info',{userId:userId}).then((res)=>{
-            if(res.status!='0'){
+            if(res.status!=='0'){
                 alert('好像出了点以外刷新看看')
             }else{
                 let temp=res.result.info;
@@ -38,7 +38,7 @@ export default class MyInfo extends React.Component{
     getcourseTree=(data)=>{
         if(data.length>0){
             return data.map((item)=>{
-                return <Row gutter={16}><Card title={item.courseName} bordered={false} style={{width:300}}>{item.courseInfo}</Card></Row>
+                return <Row gutter={16} key={item.courseId}><Card title={item.courseName} bordered={false} style={{width:300}}>{item.courseInfo}</Card></Row>
             })
         }else{
             return ''

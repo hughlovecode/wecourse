@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter,Route,Switch,Link,Redirect} from 'react-router-dom'
+import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
 import FirstPage from './firstPage'
 import './App.css';
 import Login from './components/Login/login'
@@ -9,7 +9,12 @@ import MyInfo from './pages/manage/myInfo/myInfo'
 import changeMyInfo from './pages/manage/changeMyInfo/changeMyInfo'
 import MyCourse from './pages/manage/mycourse/myCourse'
 import Detail from './pages/manage/mycourse/detail'
+import modifyCourse from './pages/manage/modifyCourse/modifyCourse'
+import statistic from './pages/manage/statistic/statistic'
+import statisticAll from './pages/manage/statisticAll/statisticAll'
 import AddMyCourse from './pages/manage/addMyCourse/addMyCourse'
+import myStudents from './pages/manage/mystudents/myStudents'
+import myHomework from './pages/manage/myHomework/myHomework'
 class App extends Component {
     constructor(){
         super()
@@ -43,6 +48,21 @@ class App extends Component {
                                 </Home>}></Route>
                                 <Route path='/course/addMyCourse' component={()=><Home>
                                     <Route path='/course/addMyCourse' component={AddMyCourse}/>
+                                </Home>}></Route>
+                                <Route path='/course/modifyCourse' component={()=><Home>
+                                    <Route path='/course/modifyCourse' component={modifyCourse}/>
+                                </Home>}></Route>
+                                <Route path='/course/statistic' component={()=><Home>
+                                    <Route path='/course/statistic' component={statistic}/>
+                                </Home>}></Route>
+                                <Route path='/course/statisticAll' component={()=><Home>
+                                    <Route path='/course/statisticAll' component={statisticAll}/>
+                                </Home>}></Route>
+                                <Route path='/course/myStudents' component={()=><Home>
+                                    <Route path='/course/myStudents' component={myStudents}/>
+                                </Home>}></Route>
+                                <Route path='/course/myHomework' component={()=><Home>
+                                    <Route path='/course/myHomework' component={myHomework}/>
                                 </Home>}></Route>
                                 <Redirect path="/" to={{pathname: '/login'}} />
                             </Switch>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Menu} from 'antd'
 import MenuList from './../../config/MenuConfig'
-import {Route,HashRouter,Switch,NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import './NavLeft.styl'
 const SubMenu = Menu.SubMenu;
 export default class NavLeft extends React.Component{
@@ -10,7 +10,7 @@ export default class NavLeft extends React.Component{
         super()
         this.state={
             menuList:MenuList,
-            menutree:''
+            
         }
     }
     componentWillMount(){
@@ -39,13 +39,12 @@ export default class NavLeft extends React.Component{
 
     render(){
         return(
-
-            <Menu  style={{ width: 256 }} mode="vertical" theme='dark'>
-                {/*前面需要放logo和一些基本的信息*/}
-                {/*下面这样写调试时浏览器会报22个错,不用管*/}
-                <img src='/assets/logo.png' className='logo'/>
-                {this.state.menutree}
-            </Menu>
+            <div>
+                <img src='http://bmob-cdn-19601.b0.upaiyun.com/2019/02/08/bb25dbfb40915a8680f1313d16f47597.png' className='logo' alt='logo'/>
+                <Menu   mode="vertical" theme='dark'> 
+                    {this.state.menutree}
+                </Menu>
+            </div>
 
         )
     }

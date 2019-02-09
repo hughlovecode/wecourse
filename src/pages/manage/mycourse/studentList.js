@@ -2,12 +2,8 @@ import React from 'react'
 import {
     List, message, Avatar, Spin,
 } from 'antd';
-import reqwest from 'reqwest';
 import './studentList.styl'
 import InfiniteScroll from 'react-infinite-scroller';
-
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
-
 export default class InfiniteListExample extends React.Component {
     constructor(props){
         super(props)
@@ -35,7 +31,7 @@ export default class InfiniteListExample extends React.Component {
     getSignInCount=(arr)=>{
         let signInWeeks=[];
         arr.forEach((item)=>{
-            if(item.isSign=='true'){
+            if(item.isSign==='true'){
                 signInWeeks.push(item.tag)
             }
         })
