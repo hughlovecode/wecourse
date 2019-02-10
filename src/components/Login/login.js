@@ -99,13 +99,24 @@ export default class Login extends React.Component{
                         tipType:'error'
                     })
                     }else{
-                        //alert(res.result.userInfo)
-                        let storage=window.localStorage;
-                        //将基础信息存到localstorage中
-                        storage.setItem('userId',res.result.userInfo.userId)
-                        storage.setItem('userName',res.result.userInfo.userName)
-                        storage.setItem('userImg',res.result.userInfo.userImg)
-                        window.location.href='/Info/myInfo'
+                        
+
+                        if(res.result.userInfo.status !=='t'){
+                                this.setState({
+                                isShowLoginTip:true,
+                                tipMessage:'错误',
+                                tipDescription:'学生用户现只允许注册,该系统现只开放给老师使用,请联系您的课程老师进行相关操作',
+                                tipType:'error'
+                            })
+                        }else{
+                            //alert(res.result.userInfo)
+                            let storage=window.localStorage;
+                            //将基础信息存到localstorage中
+                            storage.setItem('userId',res.result.userInfo.userId)
+                            storage.setItem('userName',res.result.userInfo.userName)
+                            storage.setItem('userImg',res.result.userInfo.userImg)
+                            window.location.href='/Info/myInfo'
+                        }
 
                     }
                 })
@@ -171,13 +182,22 @@ export default class Login extends React.Component{
                     console.log(response);
                     http.post('/userInfo/loginByPhone',params).then(res=>{
                         if(res.status==='0'){
-                            //alert(res.result.userInfo)
-                            let storage=window.localStorage;
-                            //将基础信息存到localstorage中
-                            storage.setItem('userId',res.result.userInfo.userId)
-                            storage.setItem('userName',res.result.userInfo.userName)
-                            storage.setItem('userImg',res.result.userInfo.userImg)
-                            window.location.href='/Info/myInfo'
+                            if(res.result.userInfo.status !=='t'){
+                                    this.setState({
+                                    isShowLoginTip:true,
+                                    tipMessage:'错误',
+                                    tipDescription:'学生用户现只允许注册,该系统现只开放给老师使用,请联系您的课程老师进行相关操作',
+                                    tipType:'error'
+                                })
+                            }else{
+                                //alert(res.result.userInfo)
+                                let storage=window.localStorage;
+                                //将基础信息存到localstorage中
+                                storage.setItem('userId',res.result.userInfo.userId)
+                                storage.setItem('userName',res.result.userInfo.userName)
+                                storage.setItem('userImg',res.result.userInfo.userImg)
+                                window.location.href='/Info/myInfo'
+                            }
                         }else{
                             console.log(res)
                             //注册失败的各种情况
