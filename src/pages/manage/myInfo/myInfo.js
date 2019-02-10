@@ -52,8 +52,8 @@ export default class MyInfo extends React.Component{
                 <Col span='12' className='info-left'>
                 <div >
                 <Card
-                    style={{ width: 350 }}
-                    cover={<img alt="example" src={this.state.userImg} />}
+                    style={{ width: 320 }}
+                    cover={<img alt="example" src={this.state.userImg} style={{width:320,maxHeight:320}}/>}
                     actions={[<Icon type="setting" />, <Icon type="edit" onClick={()=>{this.props.history.push('/Info/changeMyInfo')}}></Icon>, <Icon type="ellipsis" />]}
                 >
                     <Meta
