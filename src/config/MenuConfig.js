@@ -28,8 +28,16 @@ const menuList = [
             {
                 title: '课程统计',
                 key: '/course/statisticAll',
+            },
+            {
+                title: '课程修改',
+                key: '/course/modifyManage',
             }
         ]
+    },
+    {
+        title: '学生管理',
+        key: '/studentManage'
     }
 
 ];

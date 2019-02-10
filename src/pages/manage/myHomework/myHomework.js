@@ -103,7 +103,7 @@ export default class MyHomework extends React.Component{
 		return(
 				<div>
 					<Row>
-						<Button style={{float:'right',margin:'20px 130px'}} onClick={this.addStudent}>添加学生</Button>
+						<Button style={{float:'right',margin:'20px 130px'}} onClick={this.addStudent}>添加作业</Button>
 					</Row>
 					<Row>
 						<Col span={3}></Col>

@@ -15,6 +15,8 @@ import statisticAll from './pages/manage/statisticAll/statisticAll'
 import AddMyCourse from './pages/manage/addMyCourse/addMyCourse'
 import myStudents from './pages/manage/mystudents/myStudents'
 import myHomework from './pages/manage/myHomework/myHomework'
+import studentManage from './pages/manage/mystudents/studentManage'
+import modifyManage from './pages/manage/modifyCourse/modifyManage'
 class App extends Component {
     constructor(){
         super()
@@ -63,6 +65,12 @@ class App extends Component {
                                 </Home>}></Route>
                                 <Route path='/course/myHomework' component={()=><Home>
                                     <Route path='/course/myHomework' component={myHomework}/>
+                                </Home>}></Route>
+                                <Route path='/course/modifyManage' component={()=><Home>
+                                    <Route path='/course/modifyManage' component={modifyManage}/>
+                                </Home>}></Route>
+                                <Route path='/studentManage' component={()=><Home>
+                                    <Route path='/studentManage' component={studentManage}/>
                                 </Home>}></Route>
                                 <Redirect path="/" to={{pathname: '/login'}} />
                             </Switch>
